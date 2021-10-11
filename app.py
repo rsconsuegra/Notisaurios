@@ -137,7 +137,7 @@ def noticia_detalle(id_noticia):
     if id_noticia in lista_noticias:
         return lista_noticias[id_noticia]
     else:
-        return f"La noticia que estás buscando ({id_noticia}) no existe"
+        return f"La noticia que estás buscando ({id_noticia}) no existe en nuestra base de datos"
 
 
 if __name__ == "__main__":
