@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block titulo %} Inicio {% endblock %}
+
+
+{% block contenido %}
+<br>
+   
+
+{% if sesion_iniciada %}
+    <p>Bienvenido</p> 
+    <br>
+
+    {% if user.rol == "admin" %}
+        Mostrar acciones adicionales
+    {% endif %}
+
+    {% for key, noticia in lista_noticias.items() %}
+        <h2>{{ noticia.titulo }}</h2>
+        <p>{{ noticia.cuerpo }} <a href='/noticia/{{ key }}'>[Click aquí]</a> </p>
+
+        <a href="/eliminar_noticia/{{ key }}"></a>
+        {% for imagen in noticia.imagenes %}
+            <p> {{ imagen }} </p>
+        {% endfor %}
+    {% endfor %}
+
+    <form action="/salir" method="POST">
+        {{ csrf_tokem }}
+
+        <input type="submit" name="" value="Salir">
+    </form>
+{% else %}
+    <p>Para poder ver las noticias debes iniciar sesion: <a href="\ingreso">[Click aquí]</a></p>
+{% endif %}
+
+
+   
+<div class="menu navegacion">
+ 
+</div>
+
+{% endblock %}

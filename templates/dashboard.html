@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+    {% if login %}
+        {% if route == "dashboard/administrar-empleados" %} 
+        {% elif route == "dashboard/administrar-superadmin"  %}    
+        {% elif route == "dashboard/estadisticas"  %}    
+        {% else %}
+            Error, ruta no valdia
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}
